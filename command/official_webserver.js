@@ -5,17 +5,17 @@ server.get('/', function(req, res) {
     res.sendFile('/home/ubuntu/drone_screen.html'); 
 });
 
-// server.get('/', function(req, res) {
-//     res.sendFile('/home/ubuntu/drone_path.html'); 
-// });
+server.get('/', function(req, res) {
+     res.sendFile('/home/ubuntu/drone_path.html'); 
+ });
 
-//  server.get('/', function(req, res) {
-//      res.sendFile('/home/ubuntu/battery_screen.html'); 
-//  });
+  server.get('/', function(req, res) {
+      res.sendFile('/home/ubuntu/battery_screen.html'); 
+  });
 
-// server.get('/', function(req, res) {
-//     res.sendFile('/home/ubuntu/drone_radar_data.html'); 
-// });
+ server.get('/', function(req, res) {
+     res.sendFile('/home/ubuntu/drone_radar_data.html'); 
+ });
 
 
 

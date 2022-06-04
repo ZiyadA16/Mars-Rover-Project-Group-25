@@ -1,23 +1,107 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
         <title>
             The Drone Screen
         </title>
     </head>
-    <h1>
-        The Drone
+    <h1 style = "font-family: Trebuchet MS; font-size:350%;text-align: center; color:rgb(0, 0, 58);">
+        AUTONOMOUS MARS ROVER
     </h1>
+    <h2 style = "font-family:'Courier New'; text-align:right; font-size:160%;">
+    Rover Statistics:
+    </h2>
+    
     <style>
-        #dronescr {
-            text-align: middle;
+        .button {
+            background-color: #bd5002;
+            border:blue;
+            color: rgb(234, 243, 205);
+            padding: 10px 24px;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            transition-duration: 0.3s;
+            cursor:pointer;
+            }
+        .vertical-center {
+            margin:0;
+            position:absolute;
+            top:120px;
+            left:525px;
+        }
+            .button:hover {
+            background-color: rgb(129, 47, 0);
+            }
+            .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            }
+            .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+            }
+            .button:hover span {
+            padding-right: 25px;
+            }
+
+            .button:hover span:after {
+            opacity: 1;
+            right: 0;
+            }
+        
+        #dronepic {
+            text-align: center;
+            position:absolute;
+            top: 180px;
+            left: 340px;
+            z-index: -5;
+        }
+        #battery {
+            text-align: left;
+            position: absolute;
+            z-index: 3;
+            top: 480px;
+            left: 30px; 
+            }
+        #map {
+            text-align: left;
+            position: absolute;
+            z-index: 3;
+            top: 50px;
+            left: 30px;
         }
     </style>
-    <body style = "background-color: peachpuff;">
-        <div id="dronescr">
+
+    <body style = "background-color: rgb(245, 149, 104);">
+        <div id = "dronepic">
             <img src="https://149355317.v2.pressablecdn.com/wp-content/uploads/2021/03/DJI-FPV-Drone-Top-Camera-Drones.jpg"
-            width = "400"
-            height = "250">
+            height=300;
+            width=600;
+            >
         </div>
+        <div class="vertical-center">
+        <button class = "button" style="vertical-align: middle; font-family: 'Trebuchet MS';"><span>See the rover in action!</span></button>
+        </div>
+        <div id="battery">
+            <img src = "https://sm.pcmag.com/t/pcmag_uk/how-to/h/how-to-sav/how-to-save-battery-life-on-your-iphone_pvf5.3840.jpg"
+             alt="wiki"  width="150" height="100">
+        </div>
+        <div id="map">
+            <img src = "https://static.wikia.nocookie.net/callofduty/images/2/29/Cod4.jpg/revision/latest?cb=20130402232503"
+            width="150" height="150">
+        </div>
+       
     </body>
 </html>
