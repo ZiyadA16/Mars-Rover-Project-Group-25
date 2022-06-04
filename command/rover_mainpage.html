@@ -8,17 +8,17 @@
             The Drone Screen
         </title>
     </head>
-    <h1 style = "font-family: Trebuchet MS; font-size:350%;text-align: center; color:rgb(0, 0, 58);">
+    <h1 style = "font-family: Trebuchet MS; font-size:350%;text-align: center; color:rgb(224, 224, 246);">
         AUTONOMOUS MARS ROVER
     </h1>
-    <h2 style = "font-family:'Courier New'; text-align:right; font-size:160%;">
-    Rover Statistics:
+    <h2 style = "font-family:'Courier New'; text-align:right; font-size:160%; position: absolute; top: 120px; left:1000px; color: aliceblue;">
+    ROVER STATISTICS:
     </h2>
     
     <style>
-        .button {
+        .seeroverbutton {
             background-color: #bd5002;
-            border:blue;
+            border:rgb(200, 200, 255);
             color: rgb(234, 243, 205);
             padding: 10px 24px;
             border-radius: 3px;
@@ -26,25 +26,26 @@
             text-decoration: none;
             display: inline-block;
             font-size: 15px;
+            font-family: 'Trebuchet MS';
             transition-duration: 0.3s;
             cursor:pointer;
             }
-        .vertical-center {
+            .vertical-center {
             margin:0;
             position:absolute;
             top:120px;
-            left:525px;
-        }
-            .button:hover {
+            left:535px;
+            }
+            .seeroverbutton:hover {
             background-color: rgb(129, 47, 0);
             }
-            .button span {
+            .seeroverbutton span {
             cursor: pointer;
             display: inline-block;
             position: relative;
             transition: 0.5s;
             }
-            .button span:after {
+            .seeroverbutton span:after {
             content: '\00bb';
             position: absolute;
             opacity: 0;
@@ -52,11 +53,11 @@
             right: -20px;
             transition: 0.5s;
             }
-            .button:hover span {
+            .seeroverbutton:hover span {
             padding-right: 25px;
             }
 
-            .button:hover span:after {
+            .seeroverbutton:hover span:after {
             opacity: 1;
             right: 0;
             }
@@ -84,7 +85,7 @@
         }
     </style>
 
-    <body style = "background-color: rgb(245, 149, 104);">
+    <body style = "background-image: linear-gradient(rgb(44, 18, 0), rgb(64,11,0));">
         <div id = "dronepic">
             <img src="https://149355317.v2.pressablecdn.com/wp-content/uploads/2021/03/DJI-FPV-Drone-Top-Camera-Drones.jpg"
             height=300;
@@ -92,7 +93,7 @@
             >
         </div>
         <div class="vertical-center">
-        <button class = "button" style="vertical-align: middle; font-family: 'Trebuchet MS';"><span>See the rover in action!</span></button>
+        <a href = "exploration_page.html" class = "seeroverbutton" vertical-align: middle; font-family:Trebuchet MS;><span>See the rover in action!</span><a>
         </div>
         <div id="battery">
             <img src = "https://sm.pcmag.com/t/pcmag_uk/how-to/h/how-to-sav/how-to-save-battery-life-on-your-iphone_pvf5.3840.jpg"
