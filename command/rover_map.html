@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+ @font-face{
+    font-family:'foreign-alien';
+    src: url(maass\ slicer\ Italic.ttf);
+    font-style: normal;
+    font-weight: 100
+   }
+
+  body {
+    margin: 0;
+    font-family:foreign-alien;
+    font-weight: 100;
+    background: linear-gradient(
+        to left,
+        #3ad1ce,
+        #3143aa
+      );
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background: linear-gradient(
+        to left,
+        #187c7a,
+        #121c57
+    );
+  }
+  
+  .topnav a {
+    float: left;
+    color:  #00ffb3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background: linear-gradient(
+        to right,
+        #ff6600,
+        #ffd27d
+    );
+    color:  #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.7s;
+    opacity: 2;
+  }
+  
+  .topnav a.active {
+    background: linear-gradient(
+        to left,
+        #ff6600,
+        #ffd27d
+    );
+    color: rgb(255, 255, 255);
+    transition: 0.7s;
+  }
+  </style>
+  </head>
+  <body>
+
+  
+  <div class="topnav">
+    <a href="rover_mainpage.html">Welcome</a>
+    <a href="#Drone View">Drone View</a>
+    <a class="active" href="rover_map.html">Map</a>
+    <a href="#About">About</a>
+  </div>
