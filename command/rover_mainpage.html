@@ -5,16 +5,9 @@
         <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
         <title>
-            The Drone Screen
+            Welcome to Rover
         </title>
     </head>
-    <h1 style = "font-family: Trebuchet MS; font-size:350%;text-align: center; color:rgb(210, 210, 248);">
-        AUTONOMOUS MARS ROVER
-    </h1>
-    <h2 style = "font-family:'Courier New'; text-align:right; font-size:160%; position: absolute; top: 120px; left:1000px; color: rgb(211, 232, 251);">
-    ROVER STATISTICS:
-    </h2>
-    
     <style>
         @font-face{
             font-family:'foreign-alien';
@@ -22,52 +15,6 @@
             font-style: normal;
             font-weight: 100
         }
-
-        .seeroverbutton {
-            float:left;
-            background-color: #bd5002;
-            border:rgb(200, 200, 255);
-            color: rgb(234, 243, 205);
-            padding: 10px 24px;
-            border-radius: 3px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 15px;
-            font-family: 'Trebuchet MS';
-            transition-duration: 0.3s;
-            cursor:pointer;
-            }
-            .vertical-center {
-            margin:0;
-            position:absolute;
-            top:120px;
-            left:535px;
-            }
-            .seeroverbutton:hover {
-            background-color: rgb(129, 47, 0);
-            }
-            .seeroverbutton span {
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-            transition: 0.5s;
-            }
-            .seeroverbutton span:after {
-            content: '\00bb';
-            position: absolute;
-            opacity: 0;
-            top: 0;
-            right: -20px;
-            transition: 0.5s;
-            }
-            .seeroverbutton:hover span {
-            padding-right: 25px;
-            }
-
-            .seeroverbutton:hover span:after {
-            opacity: 1;
-            right: 0;
-            }
             .topnav {
         overflow: hidden;
         background: linear-gradient(
@@ -80,11 +27,12 @@
     .topnav a {
         float: left;
         color:  #00ffb3;
+        border-radius: 100px;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
-        font-family: ;
+        font-family: foreign-alien;
     }
     
     .topnav a:hover {
@@ -122,17 +70,9 @@
     <body style = "background-image: linear-gradient(rgb(44, 18, 0), rgb(64,11,0));">
         <div class="topnav">
             <a href="rover_mainpage.html">Welcome</a>
-            <a class="active" href="#Drone View">Drone View</a>
-            <a href="#Map">Map</a>
-            <a href="#About">About</a>
-        </div>
-
-        <div class="vertical-center">
-        <a href = "exploration_page.html" class = "seeroverbutton" vertical-align: middle; font-family:Trebuchet MS;><span>See the rover in action!</span><a>
-        </div>
-        <div id="map">
-            <img src = "https://static.wikia.nocookie.net/callofduty/images/2/29/Cod4.jpg/revision/latest?cb=20130402232503"
-            width="150" height="150">
+            <a class="active" href="rover_screen.html">See the Rover in action!</a>
+            <a href="rover_map.html">Map</a>
+            <a href="rover_about.html">About</a>
         </div>
        
     </body>

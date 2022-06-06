@@ -1,13 +1,15 @@
 var express = require('express');
 var server = express();
 
+
+server.get('/', function(req, res) {
+    res.sendFile('/home/ubuntu/rover_mainpage.html'); 
+});
+
 server.get('/', function(req, res) {
     res.sendFile('/home/ubuntu/rover_screen.html'); 
 });
 
-server.get('/', function(req, res) {
-     res.sendFile('/home/ubuntu/rover_mainpage.html'); 
- });
 
   server.get('/', function(req, res) {
       res.sendFile('/home/ubuntu/rover_map.html'); 
