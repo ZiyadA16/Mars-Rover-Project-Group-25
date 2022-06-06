@@ -3,20 +3,19 @@ var server = express();
 
 
 server.get('/', function(req, res) {
-    res.sendFile('/home/ubuntu/rover_mainpage.html'); 
+    res.sendFile('/home/ubuntu/command/rover_mainpage.html'); 
 });
 
 server.get('/', function(req, res) {
-    res.sendFile('/home/ubuntu/rover_screen.html'); 
+    res.sendFile('/home/ubuntu/command/rover_screen.html'); 
 });
 
-
   server.get('/', function(req, res) {
-      res.sendFile('/home/ubuntu/rover_map.html'); 
+      res.sendFile('/home/ubuntu/command/rover_map.html'); 
   });
 
  server.get('/', function(req, res) {
-     res.sendFile('/home/ubuntu/rover_about.html'); 
+     res.sendFile('/home/ubuntu/command/rover_about.html'); 
  });
 
 

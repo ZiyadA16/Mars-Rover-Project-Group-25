@@ -2,7 +2,9 @@
 <html>
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <title>
+    Exploration Mode
+  </title>
   <h2 style = "font-family:'Courier New'; z-index:3; text-align:right; font-size:100%; position: absolute; top: 60px; left:1060px; color: rgb(211, 232, 251);">
     ROVER STATISTICS:
     </h2>
@@ -10,7 +12,7 @@
 
  @font-face{
     font-family:'foreign-alien';
-    src: url(maass\ slicer\ Italic.ttf);
+    src: url(foreign-alien.ttf);
     font-style: normal;
     font-weight: 100
    }
@@ -20,9 +22,9 @@
     font-family: foreign-alien;
     font-weight: 100;
     background: linear-gradient(
-        to right,
-        #187c7a,
-        #121c57
+        to left,
+        #33b4b2,
+        #232390
       );
   }
   
@@ -30,7 +32,7 @@
     overflow: hidden;
     background: linear-gradient(
         to left,
-        #187c7a,
+        #18297c,
         #121c57
     );
   }
@@ -49,7 +51,7 @@
     background: linear-gradient(
         to right,
         #ff6600,
-        #ffd27d
+        #fab83f
     );
     color:  #ffffff;
     cursor: pointer;
@@ -63,7 +65,7 @@
     background: linear-gradient(
         to left,
         #ff6600,
-        #ffd27d
+        #fab83f
     );
     color: rgb(255, 255, 255);
     transition: 0.7s;
@@ -75,7 +77,7 @@
   
   <div class="topnav">
     <a href="rover_mainpage.html">Welcome</a>
-    <a class="active" href="rover_screen.html">Drone View</a>
+    <a class="active" href="rover_explore.html">See the Rover in action!</a>
     <a href="rover_map.html">Map</a>
     <a href="rover_about.html">About</a>
   </div>
@@ -101,12 +103,16 @@
         #arrows {
             position: absolute;
             z-index: 2;
-            top: 500px;
-            right: 50px; 
+            top: 470px;
+            left: 1120px; 
             }
 
     </style>
-            <div style="padding-bottom: 56.25%; position: absolute;"><iframe width="960px" height="550px" src="https://player.twitch.tv/?autoplay=false&channel=rana_2302002&parent=54.91.101.99" frameborder="50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"  style="position: absolute; top: 0px; left: 150px; width:960px ; height: 550px;"><small>Twitch embedding powered by <a href="https://embed.tube">embed.tube</a></small></iframe></div>
+            <div style="padding-bottom: 56.25%; position: absolute;"><iframe width="960px" height="550px" src="https://player.twitch.tv/?autoplay=false&channel=rana_2302002&parent=54.91.101.99" frameborder="50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              style="position: absolute;
+              top: 0px; left: 190px; width:910px ; height: 460px;">
+              <small>Twitch embedding powered by <a href="https://embed.tube">embed.tube</a></small></iframe>
+            </div>
        <div id="battery"> 
         <img src = "https://sm.pcmag.com/t/pcmag_uk/how-to/h/how-to-sav/how-to-save-battery-life-on-your-iphone_pvf5.3840.jpg" alt="wiki"  width="125" height="125">
       </div>
