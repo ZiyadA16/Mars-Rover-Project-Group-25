@@ -16,6 +16,13 @@
     </h2>
     
     <style>
+        @font-face{
+            font-family:'foreign-alien';
+            src: url(maass\ slicer\ Italic.ttf);
+            font-style: normal;
+            font-weight: 100
+        }
+
         .seeroverbutton {
             float:left;
             background-color: #bd5002;
@@ -61,7 +68,49 @@
             opacity: 1;
             right: 0;
             }
-        
+            .topnav {
+        overflow: hidden;
+        background: linear-gradient(
+            to left,
+            #19a5a3,
+            #142062
+        );
+    }
+    
+    .topnav a {
+        float: left;
+        color:  #00ffb3;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        font-family: ;
+    }
+    
+    .topnav a:hover {
+        background: linear-gradient(
+            to right,
+            #ff6600,
+            #ffd27d
+        );
+        color:  #ffffff;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.7s;
+        opacity: 2;
+    }
+    
+    .topnav a.active {
+        background: linear-gradient(
+            to left,
+            #ff6600,
+            #ffd27d
+        );
+        color: rgb(255, 255, 255);
+        transition: 0.7s;
+    }
+
         #dronepic {
             text-align: center;
             position:absolute;
@@ -92,6 +141,13 @@
             width=600;
             >
         </div>
+        <div class="topnav">
+            <a href="rover_mainpage.html">Welcome</a>
+            <a class="active" href="#Drone View">Drone View</a>
+            <a href="#Map">Map</a>
+            <a href="#About">About</a>
+        </div>
+
         <div class="vertical-center">
         <a href = "exploration_page.html" class = "seeroverbutton" vertical-align: middle; font-family:Trebuchet MS;><span>See the rover in action!</span><a>
         </div>
