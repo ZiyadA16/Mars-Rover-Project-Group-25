@@ -41,5 +41,15 @@ server.get('/Roboto-Light.ttf', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
 });
 
+server.get('/mars_pic.jpg', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/mars_pic.jpg'); 
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
+});
+
+server.get('/mars_pic2.jpg', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/mars_pic2.jpg'); 
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
+});
+
 console.log('Server is running on port 3000'); 
 server.listen(3000,'0.0.0.0');
