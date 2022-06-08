@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -27,6 +28,34 @@
                 font-style: normal;
                 font-weight: 100
         }
+        
+        .nav_rise {
+            opacity: 0;
+            animation: rise 0.5s ease-in-out forwards;
+            }
+
+        .rise {
+            opacity: 0;
+            animation: rise 1.2s ease-in-out forwards;
+            }
+
+        .subhead_rise {
+            opacity: 0;
+            animation: rise 1.6s ease-in-out forwards;
+            }
+
+
+        @keyframes rise {
+            0% {
+                transform: translateY(2rem);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            }
+
         
         body {
             margin:0;
@@ -87,17 +116,19 @@
     <body>
             
         <div class="topnav">
-            <a class="active" href="rover_mainpage.html">Welcome</a>
-            <a href="/home/ubuntu/command/rover_explore.html">See the Rover in action!</a>
-            <a href="rover_map.html">Map</a>
-            <a href="rover_about.html">About</a>
+            <a class= "active" href="rover_mainpage.html">Welcome</a>
+            <a class= "nav_rise" href="rover_explore.html">See the Rover in action!</a>
+            <a class= "nav_rise" href="rover_map.html">Map</a>
+            <a class= "nav_rise" href="rover_about.html">About</a>
         </div>
-       
-        <h1 style = "color:#ff6a00 ;font-size:330%; font-family: coalition; text-align: center; position:absolute;
-        top:90px; left:218px;">
-            AN AUTONOMOUS MARS ROVER
-        <h1>
-        <p style="color: #ff6a00; font-family: roboto; font-size: 90%; position:absolute; top:230px; left:332px">
+
+        
+        <h1 class="h1 rise" style = "color:#ff6a00 ;font-size:330%; font-family: coalition; text-align: center; position:relative;
+        top:0px; left:0px;"> 
+          AN AUTONOMOUS MARS ROVER
+       </h1>
+    
+        <p class="p subhead_rise" style="color: #ff6a00; font-family: roboto; font-size: 90%; position:relative; text-align: center; top:0px; left:0px">
             Developed by 7 Students of Imperial College London
         </p>
     </body>

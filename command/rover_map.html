@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+      
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+      
 
  @font-face{
     font-family:'foreign-alien';
@@ -10,6 +12,22 @@
     font-style: normal;
     font-weight: 100
    }
+
+   .nav_rise {
+            opacity: 0;
+            animation: rise 0.5s ease-in-out forwards;
+            }
+
+    @keyframes rise {
+            0% {
+                transform: translateY(2rem);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            }
 
   body {
     margin: 0;
@@ -71,8 +89,8 @@
 
   
   <div class="topnav">
-    <a href="rover_mainpage.html">Welcome</a>
-    <a href="rover_explore.html">See the Rover in action!</a>
-    <a class="active" href="rover_map.html">Map</a>
-    <a href="rover_about.html">About</a>
+    <a class= "nav_rise" href="rover_mainpage.html">Welcome</a>
+    <a class= "nav_rise" href="rover_explore.html">See the Rover in action!</a>
+    <a class= "active" href="rover_map.html">Map</a>
+    <a class= "nav_rise" href="rover_about.html">About</a>
   </div>

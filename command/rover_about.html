@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+ @font-face{
+    font-family:'foreign-alien';
+    src: url(foreign-alien.ttf);
+    font-style: normal;
+    font-weight: 100
+   }
+
+   .nav_rise {
+            opacity: 0;
+            animation: rise 0.5s ease-in-out forwards;
+            } 
+    @keyframes rise {
+            0% {
+                transform: translateY(2rem);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            }
+
+
+  body {
+    margin: 0;
+    font-family:foreign-alien;
+    font-weight: 100;
+    background: linear-gradient(
+        to left,
+        #18297c,
+        #121c57
+      );
+  }
+  
+  .topnav {
+        overflow: hidden;
+        background: linear-gradient(
+            to left,
+            #19a5a3,
+            #142062
+        );
+    }
+    
+    .topnav a {
+        float: left;
+        color:  #00ffb3;
+        border-radius: 100px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        font-family: foreign-alien;
+    }
+    
+    .topnav a:hover {
+        background: linear-gradient(
+            to right,
+            #ff6600,
+            #fab83f
+        );
+        color:  #241739;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.7s;
+        opacity: 2;
+    }
+    
+    .topnav a.active {
+        background: linear-gradient(
+            to left,
+            #ff6600,
+            #fab83f
+        );
+        color: rgb(255, 255, 255);
+        transition: 0.7s;
+    }
+  </style>
+  </head>
+  <body>
+
+  
+  <div class="topnav">
+    <a class= "nav_rise" href="rover_mainpage.html">Welcome</a>
+    <a class= "nav_rise" href="rover_explore.html">See the Rover in action!</a>
+    <a class= "nav_rise" href="rover_map.html">Map</a>
+    <a class= "active" href="rover_about.html">About</a>
+  </div>
