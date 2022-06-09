@@ -8,30 +8,22 @@ def create_hs_table(dynamodb=None):
         TableName='Rover',
         KeySchema=[
             {
-                'AttributeName': 'Position',
+                'AttributeName': 'position',
                 'KeyType': 'HASH'  # Partition key
             },
             {
-                'AttributeName': 'Battery',
-                'KeyType': 'HASH'  # Partition key
-            },
-            {
-                'AttributeName': 'Time',
+                'AttributeName': 'time',
                 'KeyType': 'RANGE'  # Sort key
             }
 
         ],
         AttributeDefinitions=[
             {
-                'AttributeName': 'Position',
+                'AttributeName': 'position',
                 'AttributeType': 'N'
             },
             {
-                'AttributeName': 'Battery',
-                'AttributeType': 'N'
-            },
-            {
-                'AttributeName': 'Time',
+                'AttributeName': 'time',
                 'AttributeType': 'N'
             }
 
