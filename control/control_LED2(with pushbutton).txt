@@ -1,0 +1,42 @@
+#include <Arduino.h>
+#define LED 2
+
+const int buttonPin1 = 34;
+int buttonState, B1_state;
+int lastButtonState = LOW;
+unsigned long lastDebounceTime = 0;
+unsigned long debounceDelay = 40;
+
+
+int read_state_Button(int buttonPin)
+{
+  buttonState = 0;
+  int reading = digitalRead(buttonPin);
+  if (reading != lastButtonState)
+  {
+    lastDebounceTime = millis();  
+  }
+  delay(debounceDelay + 1); 
+  if ((millis() - lastDebounceTime) > debounceDelay)
+  {
+    if(reading != buttonState)
+    {
+      buttonState= reading;
+    }
+  }
+  lastButtonState = reading;
+  return buttonState;
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  pinMode(buttonPin1,INPUT);
+}
+void loop()
+{
+  B1_state = read_state_Button(buttonPin1);
+  if(B1_state == HIGH){
+    Serial.println("Button pushed");
+  }
+}
