@@ -89,8 +89,16 @@ assign value = (cmax * 100) / 255; // 0 to 100%
 
 //Detect Ping Pong Balls: (Only green for now) (Filter declaration too)
 wire red_detect, green_detect, blue_detect, orange_detect;
-assign green_detect = //HSV values
+/*assign green_detect = ;  
+assign violet_detect = ;
+assign red_detect = ((hue >= 150 && hue <= 180) && (saturation > 40 && saturation < 80 && value >= 50 && value <= 80)); */
+assign orange_detect = ((hue >= 10 && hue <= 30)) /*&& (saturation > 40 && saturation < 100 && value >= 15 && value <= 70))*/;
 
+
+/*
+H 150 180
+s 40 80
+v 50 80 */
 
 /* Detect red areas (using rgb)
 wire red_detect;
@@ -106,7 +114,7 @@ assign grey = green[7:1] + red[7:2] + blue[7:2]; //Grey = green/2 + red/4 + blue
 assign red_high  =  red_detect ? {8'hff, 8'h0, 8'h0} : {grey, grey, grey}; */
 wire [23:0] highlight;
 assign grey = green[7:1] + red[7:2] + blue[7:2];
-assign highlight = green_detect ? {8'h04,8'hbd,8'h42} : {grey, grey, grey};
+assign highlight = orange_detect ? {8'h04,8'hbd,8'h42} : {grey, grey, grey};
 
 
 // Show bounding box
