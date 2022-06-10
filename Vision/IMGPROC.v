@@ -83,7 +83,7 @@ wire [7:0] hue, saturation, value, cmax, cmin;
 assign cmax = (blue > green) ? ((blue > red) ? blue[7:0] : red[7:0]) : (green > red) ? green [7:0] : red[7:0];
 assign cmin = (blue < green) ? ((blue < red) ? blue[7:0] : red[7:0]) : (green < red) ? green [7:0] : red[7:0];
 assign hue = (cmax == cmin) ? 0 : (cmax == red) ? ((60 * ((green - blue) / (cmax - cmin)) + 360)/510) % 360 : (cmax == green) ? ((60 * ((blue - red) / (cmax - cmin)) + 120)/510) % 360 : ((60 * ((red - green) / (cmax - cmin)) + 240)/510) % 360; //0 to 180
-assign saturation = (cmax = 0) ? 0 : ((cmax - cmin) / cmax) * 100 / 255; // 0 to 100%
+assign saturation = (cmax == 0) ? 0 : ((cmax - cmin) / cmax) * 100 / 255; // 0 to 100%
 assign value = (cmax * 100) / 255; // 0 to 100%
 
 
