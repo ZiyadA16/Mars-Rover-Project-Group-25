@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Exploration Mode
+  </title>
+  <h2 style = "font-family:'Courier New'; z-index:3; text-align:right; font-size:100%; position: absolute; top: 60px; left:1060px; color: rgb(211, 232, 251);">
+    ROVER STATISTICS:
+    </h2>
+  <style>
+
+ @font-face{
+    font-family:'foreign-alien';
+    src: url(foreign-alien.ttf);
+    font-style: normal;
+    font-weight: 100
+   }
+
+   .nav_rise {
+            opacity: 0;
+            animation: rise 0.5s ease-in-out forwards;
+            }
+
+  @keyframes rise {
+            0% {
+                transform: translateY(2rem);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            }
+
+  body {
+    margin: 0;
+    font-family: foreign-alien;
+    font-weight: 100;
+    background-image: url(mars_pic2.jpg);
+    background-size: cover;
+  }
+  
+  .topnav {
+        overflow: hidden;
+        background: linear-gradient(
+            to left,
+            #19a5a3,
+            #142062
+        );
+    }
+  
+  .topnav a {
+    float: left;
+    border-radius: 100px;
+    color:  #00ffb3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background: linear-gradient(
+        to right,
+        #ff6600,
+        #fab83f
+    );
+    color:  #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+    opacity: 2;
+  }
+  
+  .topnav a.active {
+    background: linear-gradient(
+        to left,
+        #ff6600,
+        #fab83f
+    );
+    color: rgb(255, 255, 255);
+    transition: 0.7s;
+  }
+  </style>
+  </head>
+  <body>
+
+  
+  <div class="topnav">
+    <a class= "nav_rise" href="rover_mainpage.html">Welcome</a>
+    <a class= "active" href="rover_explore.html">See the Rover in action!</a>
+    <a class= "nav_rise" href="rover_map.html">Map</a>
+    <a class= "nav_rise" href="rover_about.html">About</a>
+  </div>
+  
+    <style>
+        #twitch-embed {
+            text-align: center;
+            z-index: 1;
+            }
+        #battery {
+            text-align: left;
+            position: absolute;
+            z-index: 3;
+            top: 500px;
+            left: 50px; 
+            }
+        #map {
+            position: absolute;
+            z-index: 3;
+            top: 50px;
+            left: 50px; 
+            }
+        #arrows {
+            position: absolute;
+            z-index: 2;
+            top: 470px;
+            left: 1120px; 
+            }
+
+            #logo {
+            position: fixed;
+            z-index: 3;
+            top: 0px;
+            right: 0px; 
+            }
+
+    </style>
+            <div style="padding-bottom: 56.25%; position: absolute;"><iframe width="960px" height="550px" src="https://player.twitch.tv/?autoplay=false&channel=rana_2302002&parent=54.91.101.99" frameborder="50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              style="position: absolute;
+              top: 0px; left: 190px; width:910px ; height: 460px;">
+              <small>Twitch embedding powered by <a href="https://embed.tube">embed.tube</a></small></iframe>
+            </div>
+
+            <div id="logo">
+              <img src = "Roverium_2nd.png" class="logo" width="207"  >
+          </div>
+      
+       <div id="battery"> 
+        <img src = "https://sm.pcmag.com/t/pcmag_uk/how-to/h/how-to-sav/how-to-save-battery-life-on-your-iphone_pvf5.3840.jpg" alt="wiki"  width="125" height="125">
+      </div>
+      <div id="map"> 
+        <img src = "https://mp1st.com/wp-content/uploads/2020/03/Modern-Warfare-New-Mini-Map-2.jpg" alt="wiki"  width="125" height="125">
+      </div>
+      <div id="arrows"> 
+        <img src = "http://www.clipartbest.com/cliparts/yTk/AqE/yTkAqE4TE.jpeg" alt="wiki"  width="125" height="125">
+      </div>
+    </body> 
+</html>
