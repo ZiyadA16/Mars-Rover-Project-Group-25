@@ -41,6 +41,13 @@ server.get('/Roboto-Light.ttf', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
 });
 
+
+server.get('/Roboto-Bold.ttf', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/Roboto-Bold.ttf'); 
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
+});
+
+
 server.get('/mars_pic.jpg', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/mars_pic.jpg'); 
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
