@@ -17,8 +17,8 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);
 
 #define LED 2
 
-IPAddress local_IP(192,168,1,184);
-IPAddress gateway(192,168,1,1);
+IPAddress local_IP(54,91,101,99);
+IPAddress gateway(54,91,101,1);
 IPAddress subnet(255,255,0,0);
 IPAddress primaryDNS(8,8,8,8);
 IPAddress secondaryDNS(8,8,4,4);
