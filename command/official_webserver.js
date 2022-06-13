@@ -38,25 +38,41 @@ server.get('/Astronomus.ttf', function(req, res) {
 
 server.get('/Roboto-Light.ttf', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
+    //res.sendFile('/home/ubuntu/command/Roboto-Light.ttf');
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
 });
-
-
-server.get('/Roboto-Bold.ttf', function(req, res) {
-    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/Roboto-Bold.ttf'); 
-    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
-});
-
 
 server.get('/mars_pic.jpg', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/mars_pic.jpg'); 
+    //res.sendFile('/home/ubuntu/command/mars_pic.jpg');
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
 });
 
 server.get('/mars_pic2.jpg', function(req, res) {
-    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/mars_pic2.jpg'); 
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/mars_pic2.jpg');
+    //res.sendFile('/home/ubuntu/command/mars_pic2.jpg');
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/Roboto-Light.ttf'); 
 });
+
+server.get('/nightsky.jpeg', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/nightsky.jpeg');
+    //res.sendFile('/home/ubuntu/command/nightsky.jpeg');
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/nightsky.jpeg'); 
+});
+
+server.get('/about_page.png', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/about_page.png');
+    //res.sendFile('/home/ubuntu/command/about_page.png');
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/about_page.png'); 
+});
+
+server.get('/Roverium.png', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25-main 2/command/Roverium.png'); 
+    //res.sendFile('/home/ubuntu/command/Roverium.png');
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25-main 2/command/about_page.png'); 
+});
+
+
 
 console.log('Server is running on port 3000'); 
 server.listen(3000,'0.0.0.0');
