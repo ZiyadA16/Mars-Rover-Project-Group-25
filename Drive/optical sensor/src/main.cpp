@@ -8,7 +8,7 @@
 #define PIN_MOSI      23
 #define PIN_SCK       18
 
-#define PIN_MOUSECAM_RESET     21
+#define PIN_MOUSECAM_RESET     12
 #define PIN_MOUSECAM_CS        5
 
 #define ADNS3080_PIXELS_X                 30
@@ -100,6 +100,7 @@ int mousecam_init()
 
 
   mousecam_reset();
+  return 1;
 }
 
 void mousecam_write_reg(int reg, int val)
