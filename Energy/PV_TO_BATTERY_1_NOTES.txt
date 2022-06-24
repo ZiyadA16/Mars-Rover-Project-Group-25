@@ -1,0 +1,9 @@
+Battery does charge (when relay is on)
+Current of 0.03 - 0.05 A (when relay is on)
+Va falls out of range often, meanting power transfer is heavily chopped due to the relay
+Data collection inadequate, will record data to SD in next iteration.
+
+Improvements:
+Possible PID controller for dI/dV or dP/dV which will feed into voltage PID controller.
+Voltage / current PID controller causing hysterysis, may be fixed by lower bandwidth MPPT PID controller.
+Characterise battery for charge measurment. 
