@@ -4,6 +4,12 @@
 #include <MFRC522.h>
 #include <WiFi.h>
 #include <string.h>
+#include <WiFiClient.h>
+#include <HTTPClient.h>
+#include <WiFiUdp.h>
+#include <NTPClient.h>
+#include <stdint.h>
+
 
 #define SCK 18
 #define MISO 19

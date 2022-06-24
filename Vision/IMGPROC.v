@@ -79,26 +79,32 @@ wire         sop, eop, in_valid, out_ready;
 //HSV Conversion Variable Declaration:
 wire [7:0] hue, saturation, value, cmax, cmin;
 
-//HSV Conversion: (this is for decimal values, not binary) -> need to consider whether i should divide by 255, multiply by 100 etc or not!
+//HSV Conversion:
 assign cmax = (blue > green) ? ((blue > red) ? blue[7:0] : red[7:0]) : (green > red) ? green [7:0] : red[7:0];
 assign cmin = (blue < green) ? ((blue < red) ? blue[7:0] : red[7:0]) : (green < red) ? green [7:0] : red[7:0];
-assign hue = (cmax == cmin) ? 0 : (cmax == red) ? ((60 * ((green - blue) / (cmax - cmin)) + 360)/510) % 360 : (cmax == green) ? ((60 * ((blue - red) / (cmax - cmin)) + 120)/510) % 360 : ((60 * ((red - green) / (cmax - cmin)) + 240)/510) % 360; //0 to 180
-assign saturation = (cmax == 0) ? 0 : ((cmax - cmin) / cmax) * 100 / 255; // 0 to 100%
-assign value = (cmax * 100) / 255; // 0 to 100%
+assign hue = (cmax == cmin) ? 0 
+: (cmax == red) ? ( (green>blue) ? ((((15*((green - blue) / ((cmax - cmin)>>2)))>>1)+180)%180) : ((180-((15*((blue - green) / ((cmax - cmin)>>2)))>>1))%180) ) 
+: (cmax == green) ? ( (blue>red) ? ((((15*((blue - red) / ((cmax - cmin)>>2)))>>1)+60)%180) : ((60-((15*((red - blue) / ((cmax - cmin)>>2)))>>1))%180) ) 
+:               ( (red>green) ? ((((15*((red - green) / ((cmax - cmin)>>2)))>>1)+120)%180) : ((120-((15*((green - red) / ((cmax - cmin)>>2)))>>1))%180) ); //0 to 180
+assign saturation = (cmax == 0) ? 0 : ((cmax - cmin)* 100 / cmax); // 0 to 100%
+assign value = (cmax); //0 to 255
 
 
-//Detect Ping Pong Balls: (Only green for now) (Filter declaration too)
-wire red_detect, green_detect, blue_detect, orange_detect;
-/*assign green_detect = ;  
-assign violet_detect = ;
-assign red_detect = ((hue >= 150 && hue <= 180) && (saturation > 40 && saturation < 80 && value >= 50 && value <= 80)); */
-assign orange_detect = ((hue >= 10 && hue <= 30)) /*&& (saturation > 40 && saturation < 100 && value >= 15 && value <= 70))*/;
+//Detect Ping Pong Balls:
+wire red_detect, violet_detect, blue_detect, orange_detect, /*pink_detect,*/ yellow_detect, lime_detect, teal_detect, white_detect;
 
+//assign violet_detect = (hue >= 120 && hue <= 140) && (saturation > 40 && saturation < 60 && value >= 115 );  //>270  <280
+//assign orange_detect = (hue >= 25 && hue <= 35); /*&& (saturation > 40 && saturation < 100 && value >= 15 && value <= 70)) 70,50*/
 
-/*
-H 150 180
-s 40 80
-v 50 80 */
+assign blue_detect = (hue >= 78 && hue <= 122) && (saturation > 24 && saturation <= 100 && value <= 108 );  //>300 <10
+assign red_detect = (hue >= 0 && hue  <= 23) && (saturation > 73 && saturation <= 100 && value >= 93 ); //&& value >= 50 && value <= 80));    /*300,10*/
+assign teal_detect = (hue >= 39 && hue  <= 90) && (saturation > 38 && saturation <= 100 && value <= 151);
+//assign pink_detect = 0;//( (hue >= 150 && hue <= 180) || (hue <= 32 && hue >= 0) ) && (saturation > 41 && saturation <= 100 && value >= 85); // hue 0.922 to 0.114 (convert), saturation 0.438 to 1, value 0.545 to 1 (convert) &red
+//assign pink_detect = 0; //(hue >= 2 && hue <= 25) && (saturation > 60 && saturation <= 100 && value >= 83);
+assign yellow_detect = (hue >= 10 && hue <= 50) && (saturation > 58 && saturation <= 100 && value >= 65); //hue , sat , val
+assign lime_detect = (hue >= 38  && hue <= 73) && (saturation > 22 && saturation <= 91 && value >= 68);
+assign white_detect = (value >= 250);
+
 
 /* Detect red areas (using rgb)
 wire red_detect;
@@ -106,15 +112,33 @@ assign red_detect = red[7] & ~green[7] & ~blue[7]; */
 
 // Find boundary of cursor box
 
-/*Filter*/
-
 /* Highlight detected areas
 wire [23:0] red_high;
 assign grey = green[7:1] + red[7:2] + blue[7:2]; //Grey = green/2 + red/4 + blue/4
 assign red_high  =  red_detect ? {8'hff, 8'h0, 8'h0} : {grey, grey, grey}; */
 wire [23:0] highlight;
 assign grey = green[7:1] + red[7:2] + blue[7:2];
-assign highlight = orange_detect ? {8'h04,8'hbd,8'h42} : {grey, grey, grey};
+//assign highlight = (orange_detect || red_detect || violet_detect || blue_detect) ? {8'h04,8'hbd,8'h42} : {grey, grey, grey};
+assign highlight = 
+		  (red_detect) ? {8'hff, 8'h0, 8'h0}
+		: (blue_detect) ? {8'h0,8'h0,8'hff}
+		: (yellow_detect) ? {8'hff,8'hff,8'h0} 
+		: (teal_detect) ? {8'h0,8'h80,8'h80}
+		: (lime_detect) ? {8'h32,8'hcd,8'h32} 
+		//: (pink_detect) ? {8'hff,8'hc0,8'cb}
+		: (white_detect) ? {8'hff,8'hff,8'hff} 
+		: {grey, grey, grey};
+		
+
+//(red_detect || teal_detect || pink_detect || blue_detect || yellow_detect || lime_detect) ? {8'h04,8'hbd,8'h42} : {grey, grey, grey};
+
+//red:{8'hff, 8'h0, 8'h0}
+//blue:{8'h0,8'h0,8'hff}
+//teal:{8'h0,8'h80,8'h80} 
+//pink:{8'hff,8'hc0,8'cb} 
+//yellow:{8'hff,8'hff,8'h0} 
+//lime:{8'h32,8'hcd,8'h32} 
+//white:{8'hff,8'hff,8'hff} 
 
 
 // Show bounding box
@@ -151,7 +175,7 @@ end
 //Find first and last red pixels
 reg [10:0] x_min, y_min, x_max, y_max;
 always@(posedge clk) begin
-	if (red_detect & in_valid) begin	//Update bounds when the pixel is red
+	if ((teal_detect || red_detect || /*pink_detect ||*/ blue_detect || yellow_detect || lime_detect || white_detect)& in_valid) begin	//Update bounds when the pixel is red
 		if (x < x_min) x_min <= x;
 		if (x > x_max) x_max <= x;
 		if (y < y_min) y_min <= y;
@@ -164,9 +188,6 @@ always@(posedge clk) begin
 		y_max <= 0;
 	end
 end
-
-//Drive & Distance Instr
-
 
 
 
@@ -341,4 +362,3 @@ assign msg_buf_rd = s_chipselect & s_read & ~read_d & ~msg_buf_empty & (s_addres
 -Autonomous drive instructions? */
 
 endmodule
-
