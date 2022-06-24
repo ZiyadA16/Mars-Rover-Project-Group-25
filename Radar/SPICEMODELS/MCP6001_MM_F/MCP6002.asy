@@ -1,0 +1,23 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal -64 -64 64 64
+WINDOW 0 -3 34 Bottom 2
+WINDOW 3 0 -36 Top 2
+SYMATTR Prefix X
+SYMATTR Value MCP6002
+SYMATTR ModelFile C:\Users\leoar\Documents\EE2\Project\Radar\SPICEMODELS\MCP6001_MM_F\MCP6001.txt
+PIN -64 -48 LEFT 8
+PINATTR PinName V+
+PINATTR SpiceOrder 1
+PIN -64 48 LEFT 8
+PINATTR PinName V-
+PINATTR SpiceOrder 2
+PIN 0 -64 TOP 8
+PINATTR PinName Vcc
+PINATTR SpiceOrder 3
+PIN 0 64 BOTTOM 8
+PINATTR PinName Vee
+PINATTR SpiceOrder 4
+PIN 64 0 RIGHT 8
+PINATTR PinName Vout
+PINATTR SpiceOrder 5

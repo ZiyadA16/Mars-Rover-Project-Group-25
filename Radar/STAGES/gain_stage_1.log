@@ -1,0 +1,22 @@
+Circuit: * C:\Users\leoar\Documents\EE2\Project\Radar\STAGES\gain_stage_1.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Jun 19 15:43:20 2022
+Total elapsed time: 1.743 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 36325
+traniter = 36306
+tranpoints = 17873
+accept = 12180
+rejected = 5693
+matrix size = 74
+fillins = 49
+solver = Alternate
+Thread vector: 23.9/15.9[2] 9.4/6.3[2] 1.4/1.7[1] 2.6/2.2[2]  2592/500
+Matrix Compiler1: 5.79 KB object code size  5.0/3.8/[2.7]
+Matrix Compiler2: 6.72 KB object code size  3.6/4.2/[1.8]
+
