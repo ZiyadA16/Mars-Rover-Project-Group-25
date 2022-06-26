@@ -79,13 +79,56 @@ int distance_y=0;
 volatile byte movementflag=0;
 volatile int xydat[2];
 int tdistance = 0;
+int turn = 0; //number of turns by 90 rhs
+int revturn = 0; //number of turns by 90 lhs
+int tdistance = 0;
+//------------------------------------sensor functions---------------------------------
+int convTwosComp(int b){
+   //Convert from 2's complement
+  if(b & 0x80){
+    b = -1 * ((b ^ 0xff) + 1);
+    }
+  return b;
+  }
 
-//------------------------------------functions---------------------------------
-int convTwosComp(int b);
-void mousecam_reset();
-int mousecam_init();
-void mousecam_write_reg(int reg, int val);
-int mousecam_read_reg(int reg);
+void mousecam_reset(){
+  digitalWrite(PIN_MOUSECAM_RESET,HIGH);
+  delay(1); // reset pulse >10us
+  digitalWrite(PIN_MOUSECAM_RESET,LOW);
+  delay(35); // 35ms from reset to functional
+}
+
+int mousecam_init()
+{
+  pinMode(PIN_MOUSECAM_RESET,OUTPUT);
+  pinMode(PIN_MOUSECAM_CS,OUTPUT);
+
+  digitalWrite(PIN_MOUSECAM_CS,HIGH);
+
+
+  mousecam_reset();
+  return 1;
+}
+
+void mousecam_write_reg(int reg, int val)
+{
+  digitalWrite(PIN_MOUSECAM_CS, LOW);
+  SPI.transfer(reg | 0x80);
+  SPI.transfer(val);
+  digitalWrite(PIN_MOUSECAM_CS,HIGH);
+  delayMicroseconds(50);
+}
+
+int mousecam_read_reg(int reg)
+{
+  digitalWrite(PIN_MOUSECAM_CS, LOW);
+  SPI.transfer(reg);
+  delayMicroseconds(75);
+  int ret = SPI.transfer(0xff);
+  digitalWrite(PIN_MOUSECAM_CS,HIGH);
+  delayMicroseconds(1);
+  return ret;
+}
 
 struct MD
 {
@@ -96,18 +139,66 @@ struct MD
  byte max_pix;
 };
 
-void mousecam_read_motion(struct MD *p);
-int mousecam_frame_capture(byte *pdata);
-
-Robojax_L298N_DC_motor robot(IN1, IN2, ENA, CHA,  IN3, IN4, ENB, CHB);
-// for two motors with debug information
-//Robojax_L298N_DC_motor robot(IN1, IN2, ENA, CHA, IN3, IN4, ENB, CHB, true);
-void setup() {
-  Serial.begin(115200);
-  robot.begin();
-  //L298N DC Motor by Robojax.com
+void mousecam_read_motion(struct MD *p)
+{
+  digitalWrite(PIN_MOUSECAM_CS, LOW);
+  SPI.transfer(ADNS3080_MOTION_BURST);
+  delayMicroseconds(75);
+  p->motion =  SPI.transfer(0xff);
+  p->dx =  SPI.transfer(0xff);
+  p->dy =  SPI.transfer(0xff);
+  p->squal =  SPI.transfer(0xff);
+  p->shutter =  SPI.transfer(0xff)<<8;
+  p->shutter |=  SPI.transfer(0xff);
+  p->max_pix =  SPI.transfer(0xff);
+  digitalWrite(PIN_MOUSECAM_CS,HIGH);
+  delayMicroseconds(5);
 }
 
+int mousecam_frame_capture(byte *pdata)
+{
+  mousecam_write_reg(ADNS3080_FRAME_CAPTURE,0x83);
+
+  digitalWrite(PIN_MOUSECAM_CS, LOW);
+
+  SPI.transfer(ADNS3080_PIXEL_BURST);
+  delayMicroseconds(50);
+
+  int pix;
+  byte started = 0;
+  int count;
+  int timeout = 0;
+  int ret = 0;
+  for(count = 0; count < ADNS3080_PIXELS_X * ADNS3080_PIXELS_Y; )
+  {
+    pix = SPI.transfer(0xff);
+    delayMicroseconds(10);
+    if(started==0)
+    {
+      if(pix&0x40)
+        started = 1;
+      else
+      {
+        timeout++;
+        if(timeout==100)
+        {
+          ret = -1;
+          break;
+        }
+      }
+    }
+    if(started==1)
+    {
+      pdata[count++] = (pix & 0x3f)<<2; // scale to normal grayscale byte range
+    }
+  }
+
+  digitalWrite(PIN_MOUSECAM_CS,HIGH);
+  delayMicroseconds(14);
+
+  return ret;
+}
+//----------------------------motor functions--------------------------------------
 void rotateplus90();
 void rotateminus90();
 void forwards();
@@ -149,4 +240,119 @@ void backwards(){
   robot.brake(1);
   robot.brake(2);
   delay(3000);
+}
+
+Robojax_L298N_DC_motor robot(IN1, IN2, ENA, CHA,  IN3, IN4, ENB, CHB);
+// for two motors with debug information
+//Robojax_L298N_DC_motor robot(IN1, IN2, ENA, CHA, IN3, IN4, ENB, CHB, true);
+void setup() {
+  Serial.begin(115200);
+  //---Motor setup---
+  robot.begin();
+  //L298N DC Motor by Robojax.com
+  //---Sensor setup---
+  pinMode(PIN_SS,OUTPUT);
+  pinMode(PIN_MISO,INPUT);
+  pinMode(PIN_MOSI,OUTPUT);
+  pinMode(PIN_SCK,OUTPUT);
+
+  SPI.begin();
+  SPI.setClockDivider(SPI_CLOCK_DIV32);
+  SPI.setDataMode(SPI_MODE3);
+  SPI.setBitOrder(MSBFIRST);
+
+  Serial.begin(115200);
+
+  if(mousecam_init()==-1)
+  {
+    Serial.println("Mouse cam failed to init");
+    while(1);
+  }
+}
+
+//--------------------------------Main loop----------------------------------
+
+void loop()
+{
+ #if 0
+/*
+    if(movementflag){
+
+    tdistance = tdistance + convTwosComp(xydat[0]);
+    Serial.println("Distance = " + String(tdistance));
+    movementflag=0;
+    delay(3);
+    }
+
+  */
+  // if enabled this section grabs frames and outputs them as ascii art
+
+  if(mousecam_frame_capture(frame)==0)
+  {
+    int i,j,k;
+    for(i=0, k=0; i<ADNS3080_PIXELS_Y; i++)
+    {
+      for(j=0; j<ADNS3080_PIXELS_X; j++, k++)
+      {
+        Serial.print(asciiart(frame[k]));
+        Serial.print(' ');
+      }
+      Serial.println();
+    }
+  }
+  Serial.println();
+  delay(250);
+
+  #else
+
+  // if enabled this section produces a bar graph of the surface quality that can be used to focus the camera
+  // also drawn is the average pixel value 0-63 and the shutter speed and the motion dx,dy.
+
+  int val = mousecam_read_reg(ADNS3080_PIXEL_SUM);
+  MD md;
+  mousecam_read_motion(&md);
+  for(int i=0; i<md.squal/4; i++)
+    Serial.print('*');
+  Serial.print(' ');
+  Serial.print((val*100)/351);
+  Serial.print(' ');
+  Serial.print(md.shutter); Serial.print(" (");
+  Serial.print((int)md.dx); Serial.print(',');
+  Serial.print((int)md.dy); Serial.println(')');
+
+  // Serial.println(md.max_pix);
+  delay(100);
+
+
+    distance_x = md.dx; //convTwosComp(md.dx);
+    distance_y = md.dy; //convTwosComp(md.dy);
+
+total_x1 = total_x1 + distance_x;
+total_y1 = total_y1 + distance_y;
+
+total_x = total_x1/157;
+total_y = total_y1/157;
+
+
+Serial.print('\n');
+
+//--axes swapping for rotation--
+if(turn % 2 ==0)
+{
+  total_y = total_x1;
+  total_x = total_y1;
+}
+else if(turn % 2 != 0)
+{
+  total_y = -1*total_x1;
+  total_x = total_y1;
+}
+Serial.println("Distance_x = " + String(total_x));
+
+Serial.println("Distance_y = " + String(total_y));
+Serial.print('\n');
+
+  delay(250);
+
+  #endif
 }
