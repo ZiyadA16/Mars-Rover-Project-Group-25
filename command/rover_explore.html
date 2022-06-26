@@ -89,33 +89,40 @@
   }
 
   .leftbutton {
-    background-color: blanchedalmond;
-    border-radius: 100px;
+    background-color: rgb(255, 130, 41);
+    border-radius: 60px 0px 0px 60px;
     position:absolute;
     top:350px;
-    left:1110px;
-    font-size: 130%;
+    left:1115px;
+    font-size: 190%;
   }
 
   .rightbutton {
-    background-color: blanchedalmond;
-    border-radius: 100px;
+    background-color: rgb(255, 130, 41);
+    border-radius: 0px 60px 60px 0px;
     position:absolute;
     top:350px;
-    left:1190px;
-    font-size: 130%;
+    left:1204px;
+    font-size: 190%;
   }
   
   .forwardbutton {
-    background-color: blanchedalmond;
+    background-color: rgb(255, 130, 41);
     border-radius:60px 60px 0px 0px;
     position:absolute;
-    top:310px;
-    left:1135px;
-    font-size: 100%;
-    padding: 4px 11px;
+    top:295px;
+    left:1161px;
+    font-size: 250%;
   }
   
+  .reversebutton {
+    background-color: rgb(255, 130, 41);
+    border-radius: 0px 0px 60px 60px;
+    position:absolute;
+    top:396px;
+    left:1161px;
+    font-size: 250%;
+  }
   </style>
   </head>
   <body>
@@ -130,24 +137,25 @@
 
   <script>
     function lefthold() {
-      document.getElementById("leftbutton");
+      const myelement = document.getElementById("leftbutton");
+      myelement.style.color = "red";
     }
   </script>
 
   <button class = "leftbutton" onmousedown="lefthold()">
-    Left
+    ⇦
   </button>
 
   <button class = "rightbutton" onmousedown="righthold()">
-    Right
+    ⇨
   </button>
 
   <button class = "forwardbutton" onmousedown="forwardhold()">
-    Forward
+    ⇧
   </button>
   
   <button class = "reversebutton" onmousedown="reversehold()">
-    Reverse
+    ⇩
   </button>
 
     <style>
