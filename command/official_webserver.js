@@ -84,6 +84,11 @@ server.get('/mars_backdrop.jpeg', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/mars_backdrop.jpeg'); 
 });
 
+server.get('/marstoearth.jpeg', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/marstoearth.jpeg'); 
+    //res.sendFile('/home/ubuntu/command/Roverium.png');
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/mars_backdrop.jpeg'); 
+});
 
 console.log('Server is running on port 3000'); 
 server.listen(3000,'0.0.0.0');
