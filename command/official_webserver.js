@@ -73,6 +73,12 @@ server.get('/Roverium_2nd.png', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/about_page.png'); 
 });
 
+server.get('/Roboto-Bold.ttf', function(req, res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/Roboto-Bold.ttf'); 
+    //res.sendFile('/home/ubuntu/command/Roboto-Bold.ttf');
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/Roboto-Bold.ttf'); 
+});
+
 server.get('/grid.jpeg', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/grid.jpeg'); 
     //res.sendFile('/home/ubuntu/command/Roverium.png');
