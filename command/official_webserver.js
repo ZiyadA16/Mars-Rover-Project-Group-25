@@ -72,7 +72,7 @@ server.get('/about_page.png', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/about_page.png'); 
 });
 
-server.get('/Roverium.png', function(req, res) {
+server.get('/Roverium_2nd.png', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/Roverium.png'); 
     //res.sendFile('/home/ubuntu/command/Roverium.png');
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/about_page.png'); 
