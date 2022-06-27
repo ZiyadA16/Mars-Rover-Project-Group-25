@@ -17,6 +17,11 @@ server.get('/rover_explore.html', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/rover_explore.html'); 
 });
 
+server.get('/Roverium_2nd.png',  function(req,res) {
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/Roverium.png');
+    //res.sendFile('/home/ubuntu/command/Roverium_2nd.png')
+});
+
 server.get('/rover_map.html', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/rover_map.html'); 
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/rover_map.html'); 

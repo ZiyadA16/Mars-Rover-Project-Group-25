@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
       
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -119,6 +120,7 @@
 
 
   </style>
+
   </head>
   <body>
 
@@ -134,8 +136,8 @@
         const client = mqtt.connect(connectUrl, {
           clientId,
           clean: true,
-          connectTimeout: 4000,
-          reconnectPeriod: 1000,
+        //   connectTimeout: 4000,
+        //   reconnectPeriod: 1000,
         })
         
         const topic = 'My_Topic'
@@ -153,9 +155,15 @@
         client.on('message', (topic, payload) => {
           console.log('Received Message:', topic, payload.toString())
         })
-        document.getElementById("position").innerHTML = "position(x,y): " + payload.toString();
+       var message = payload.toString();
+       // document.getElementById("pos").innerHTML = "position(x,y): " + payload.toString();
+      var input1 = "heyy" ;
         </script>
-    
+    <script>
+        var input = payload.toString();
+    </script>
+     <p> Hello! I'm <script> document.write(message)</script></p>
+
     <div id="logo">
         <img src = "Roverium_2nd.png" class="logo" width="207"  >
     </div>
@@ -167,8 +175,9 @@
     <div id="Mars_backdrop">
         <img src = "mars_backdrop.jpeg" class="logo" width="500" height = "500">
     </div>
-    <p id="position" style = "font-family:'roboto'; z-index:3; text-align:right; font-size:200%; position: absolute;
-    top: 400px; right:30px; color: rgb(255, 94, 0);" ></p> 
+
+</body>  
+   
 
 
   
