@@ -1,6 +1,7 @@
 var express = require('express');
 var server = express();
 
+
 server.get('/', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/rover_mainpage.html'); 
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/rover_mainpage.html'); 
@@ -42,7 +43,7 @@ server.get('/Roboto-Light.ttf', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/Roboto-Light.ttf'); 
 });
 
-var button = document.getElementById("")
+
 
 server.get('/mars_pic.jpg', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/mars_pic.jpg'); 
@@ -91,6 +92,9 @@ server.get('/marstoearth.jpeg', function(req, res) {
     //res.sendFile('/home/ubuntu/command/Roverium.png');
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/mars_backdrop.jpeg'); 
 });
+
+
+
 
 console.log('Server is running on port 3000'); 
 server.listen(3000,'0.0.0.0');
