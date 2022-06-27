@@ -43,8 +43,11 @@ server.get('/Roboto-Light.ttf', function(req, res) {
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/Roboto-Light.ttf'); 
 });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 16e67b2727cfeb7ae7d1b759c453a4afee5c7f65
 server.get('/mars_pic.jpg', function(req, res) {
     res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/mars_pic.jpg'); 
     //res.sendFile('/home/ubuntu/command/mars_pic.jpg');
