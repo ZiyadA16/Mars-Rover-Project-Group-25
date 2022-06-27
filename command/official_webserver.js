@@ -8,7 +8,7 @@ server.get('/', function(req, res) {
 });
 
 server.get('/rover_mainpage.html', function(req, res) {
-    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/rover_mainpage.html'); 
+    res.sendFile('/home/ubuntu//command/rover_mainpage.html'); 
     //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/rover_mainpage.html'); 
 });
 
@@ -97,9 +97,9 @@ server.get('/mars_backdrop.jpeg', function(req, res) {
 });
 
 server.get('/marstoearth.jpeg', function(req, res) {
-    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/marstoearth.jpeg'); 
-    //res.sendFile('/home/ubuntu/command/Roverium.png');
-    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/mars_backdrop.jpeg'); 
+    res.sendFile('/home/ubuntu/Mars-Rover-Project-Group-25/command/marstoearth.jpg'); 
+    //res.sendFile('/home/ubuntu/command/marstoearth.jpg');
+    //res.sendFile('/Users/aryanrana/Desktop/Mars-Rover-Project-Group-25/command/marstoearth.jpg'); 
 });
 
 
