@@ -153,12 +153,15 @@
     <a class= "nav_rise" href="rover_about.html">About</a>
   </div>
 
-  <script>
+  <script> // these functions control the movement of the rover 
     function lefthold () { alert("Turn left") }
     function righthold() {alert("Turn right")}
+    function forwardhold() {}
+    function reversehold() {}
+    function stop() {}
   </script>
 
-  <button class = "leftbutton" onmousedown="lefthold()">
+  <button class = "leftbutton" onmousedown="lefthold()" onmouseup="stop()">
     ⇦
   </button>
 
