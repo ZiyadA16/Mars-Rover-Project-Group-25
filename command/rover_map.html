@@ -122,13 +122,12 @@
   </style>
 
   </head>
-  <body>
 
-    <script>
+    <script type = "text/javascript">
       
         const mqtt = require('mqtt')
         
-        const host = '54.91.101.99'
+        const host = 'c'
         const port = '1883'
         const clientId = `mqtt_${Math.random().toString(16).slice(3)}`
         
@@ -136,8 +135,8 @@
         const client = mqtt.connect(connectUrl, {
           clientId,
           clean: true,
-        //   connectTimeout: 4000,
-        //   reconnectPeriod: 1000,
+          connectTimeout: 4000,
+          reconnectPeriod: 1000,
         })
         
         const topic = 'My_Topic'
@@ -156,13 +155,19 @@
           console.log('Received Message:', topic, payload.toString())
         })
        var message = payload.toString();
-       // document.getElementById("pos").innerHTML = "position(x,y): " + payload.toString();
+       var input= "position(x,y): " + payload.toString();
+       document.getElementById("messages").innerHTML = out_msg;
       var input1 = "heyy" ;
         </script>
+
     <script>
-        var input = payload.toString();
+        document.getElementById("pos1").innerHTML = "position(x,y): ";
     </script>
-     <p> Hello! I'm <script> document.write(message)</script></p>
+
+       <script>
+      var input1 = "Gwen";
+    
+  </script>|<p><script>  document.write(input); </script></p>
 
     <div id="logo">
         <img src = "Roverium_2nd.png" class="logo" width="207"  >
