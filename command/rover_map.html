@@ -117,7 +117,11 @@
             left:400px;
             }
             
-
+    .positionxy {
+        position: absolute;
+        top:50px;
+        left:40px;
+    }
 
   </style>
 
@@ -155,21 +159,13 @@
           console.log('Received Message:', topic, payload.toString())
         })
        var message = payload.toString();
-       var input= "position(x,y): " + payload.toString();
+       var input2 = "position(x,y): ";
        document.getElementById("messages").innerHTML = out_msg;
       var input1 = "heyy" ;
         </script>
 
-    <script>
-        var input = "hello";
-    </script>
-     <script>
-        document.getElementById("pos1").innerHTML = "position(x,y): ";
-    </script>
-
        <script>
-      var input1 = "Gwen";
-    
+      var input = "Position (X,Y):";
   </script>
 
     <div id="logo">
@@ -198,4 +194,4 @@
   </div>
 
   
-  <p> Hello! I'm <script> document.write(input)</script></p>
+  <h1 class="positionxy"> <script> document.write(input)</script></h1>
