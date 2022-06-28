@@ -21,7 +21,7 @@ float vpd,vb,vref,iL,dutyref,current_mA, va; // Measurement Variables
 unsigned int sensorValue0,sensorValue1,sensorValue2,sensorValue3;  // ADC sample values declaration
 float ev=0,cv=0,ei=0,oc=0, ep = 0; //internal signals
 float Ts=0.0008; //1.25 kHz control frequency. It's better to design the control period as integral multiple of switching period.
-int loopMaxValue = 500;
+int loopMaxValue = 150;
 float Ts_power= Ts*loopMaxValue; // Lower frequency control
 //float kpv=0.043,kiv=20.1,kdv=0; // voltage pid. (attempt to speed up)
 float kpv=0.02512,kiv=15.78,kdv=0; // voltage pid.
