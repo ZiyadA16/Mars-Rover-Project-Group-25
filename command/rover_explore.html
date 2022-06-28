@@ -202,17 +202,48 @@
             top: 0px;
             right: 0px; 
             }
+        
+          #container {
+            margin: 0px auto;
+            width: 500px;
+            height: 375px;
+            border: 10px #333 solid;
+          }
+          #videoElement {
+            width: 500px;
+            height: 375px;
+            background-color: #666;
+          }
+</style>
+<body>
+  <div id="container">
+    <video autoplay="true" id="videoElement">
+    
+    </video>
+  </div>
+  <script>
+    var video = document.querySelector("#videoElement");
 
-
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+  </script>
+</body>
 
     </style>
-   
 
-            <div style="padding-bottom: 56.25%; position: absolute;"><iframe width="960px" height="550px" src="https://player.twitch.tv/?autoplay=false&channel=rana_2302002&parent=54.91.101.99" frameborder="50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+
+            <!-- <div style="padding-bottom: 56.25%; position: absolute;"><iframe width="960px" height="550px" src="https://player.twitch.tv/?autoplay=false&channel=rana_2302002&parent=54.91.101.99" frameborder="50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
               style="position: absolute;
               top: 0px; left: 190px; width:910px ; height: 460px;">
               <small>Twitch embedding powered by <a href="https://embed.tube">embed.tube</a></small></iframe>
-            </div>
+            </div> -->
 
             <div id="logo">
               <img src = "Roverium_2nd.png" class="logo" width="207"  >
